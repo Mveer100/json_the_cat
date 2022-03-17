@@ -1,6 +1,6 @@
 const request = require("request");
 const breedName = process.argv[2];
-const dynamicBreedSearch = (breedName) => {
+const fetchBreedDescription = (breedName) => {
   request("https://api.thecatapi.com/v1/breeds/search?q=" + breedName, (error, repsonse, body) => {
     if (error) {
       console.log("error:", error);
@@ -14,4 +14,4 @@ const dynamicBreedSearch = (breedName) => {
     console.log(data[0]["description"]);
   });
 };
-dynamicBreedSearch(breedName);
+fetchBreedDescription(breedName);
